@@ -3,7 +3,7 @@ package mx.edu.utez.service.controller;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import mx.edu.utez.service.FormService;
+import mx.edu.utez.service.service.FormService;
 import mx.edu.utez.service.dto.FormDTO;
 import mx.edu.utez.service.utils.GlobalVariable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class FormController {
     FormService formService;
 
     @PostMapping
-    public ResponseEntity<String> save(@Valid @RequestBody FormDTO formDTO) {
+    public ResponseEntity<String> save(@Valid @ModelAttribute FormDTO formDTO) {
         try {
             formService.save(formDTO);
             return ResponseEntity.ok("Registro exitoso");

@@ -1,4 +1,4 @@
-package mx.edu.utez.service;
+package mx.edu.utez.service.service;
 
 import jakarta.validation.*;
 import mx.edu.utez.service.dto.FormDTO;
@@ -6,6 +6,7 @@ import mx.edu.utez.service.model.Form;
 import mx.edu.utez.service.model.Select;
 import mx.edu.utez.service.repository.FormRepository;
 import mx.edu.utez.service.repository.SelectRepository;
+import mx.edu.utez.service.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,7 @@ public class FormService {
             throw new Exception("Select no encontrado");
         }
         formDTO.setSelect(select.get());
+        formDTO.setToDate(Utils.parseStringDate(formDTO.getDate()));
         Form form = formDTO.getForm();
         return formRepository.save(form);
     }
