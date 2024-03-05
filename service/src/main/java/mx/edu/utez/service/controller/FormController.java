@@ -34,6 +34,8 @@ public class FormController {
                 errorMessages.add(violation.getMessage());
             }
             return ResponseEntity.badRequest().body(errorMessages.toString());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

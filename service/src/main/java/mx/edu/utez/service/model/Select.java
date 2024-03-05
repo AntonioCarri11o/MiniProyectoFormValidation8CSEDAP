@@ -16,4 +16,7 @@ public class Select {
     @Column(name = "option_select")
     private String option;
 
+    public Select(Long id) {
+        this.id = id;
+    }
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +24,6 @@ public class Form {
     private String card_number;
     @Column(name = "rfc_form")
     private String rfc;
-    @Column(name = "curp_form")
-    private String curp;
     @Column(name = "email_form")
     private String password;
     @Column(name = "number_form")
