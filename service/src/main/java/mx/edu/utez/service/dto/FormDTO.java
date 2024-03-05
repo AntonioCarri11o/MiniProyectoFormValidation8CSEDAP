@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.service.model.Form;
 import mx.edu.utez.service.model.Select;
-import mx.edu.utez.service.validator.DateUp18Years;
+import mx.edu.utez.service.validate.anotations.DateUp18Years;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -46,6 +45,7 @@ public class FormDTO {
     private String fileUrl;
     private Select select;
     private Date toDate;
+
 
 
     public Form getForm() {

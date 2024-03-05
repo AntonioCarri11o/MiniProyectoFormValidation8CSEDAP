@@ -23,7 +23,11 @@ public class CloudService {
     public String saveFile(MultipartFile file) throws IOException {
         byte [] content = file.getBytes();
         String fileName = file.getOriginalFilename();
-        Blob blob = storage.create(BlobInfo.newBuilder(bucketName, fileName).build(), content);
+        String contentType = file.getContentType();
+        BlobInfo blobInfo = BlobInfo.newBuilder(bucketName, fileName)
+                .setContentType(contentType)
+                .build();
+        storage.create(blobInfo, content);
         return CLOUD_URL + bucketName + '/' + fileName;
     }
 }
