@@ -14,7 +14,7 @@ public class FormService {
     @Autowired
     FormRepository formRepository;
     public Form save(FormDTO formDTO) {
-        Form form = formDTO.convertToForm();
+        Form form = formDTO.getForm();
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<FormDTO>> violations = validator.validate(formDTO);
