@@ -31,17 +31,20 @@ public class FormService {
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException(violations);
         }
+        /*
         Optional<Select> select = selectRepository.findById(formDTO.getIdSelect());
         if (select.isEmpty()) {
             throw new Exception("Select no encontrado");
         }
+
         List<String> errors =  MultipartFileContentValidator.isValid(formDTO.getFile());
         if (!errors.isEmpty()) {
             throw new Exception(errors.toString());
         }
         formDTO.setSelect(select.get());
+         */
         formDTO.setToDate(Utils.parseStringDate(formDTO.getDate()));
-        formDTO.setFileUrl(cloudService.saveFile(formDTO.getFile()));
+        //formDTO.setFileUrl(cloudService.saveFile(formDTO.getFile()));
         Form form = formDTO.getForm();
         return formRepository.save(form);
     }

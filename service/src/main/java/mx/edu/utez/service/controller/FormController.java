@@ -23,7 +23,7 @@ public class FormController {
     FormService formService;
 
     @PostMapping
-    public ResponseEntity<String> save(@Valid @ModelAttribute FormDTO formDTO) {
+    public ResponseEntity<String> save(@Valid @RequestBody FormDTO formDTO) {
         try {
             formService.save(formDTO);
             return ResponseEntity.ok("Registro exitoso");

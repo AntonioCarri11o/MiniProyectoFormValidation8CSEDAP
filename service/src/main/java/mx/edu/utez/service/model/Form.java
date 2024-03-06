@@ -30,9 +30,11 @@ public class Form {
     private Long number;
     @Column(name = "date_form")
     private Date date;
+    /*
     @Column(name = "file_url_form")
     private String url;
     @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_select")
     private Select select;
+     */
 }

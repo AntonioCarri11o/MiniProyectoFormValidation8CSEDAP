@@ -38,12 +38,14 @@ public class FormDTO {
     @Pattern(regexp = "^([0-9]{4}-[0-9]{2}-[0-9]{2})$", message = "Formato de fecha yyyy-MM-dd")
     @DateUp18Years(message = "Debes ser mayor a 18 anios meco")
     private String date;
+    /*
     @NotNull(message = "Archivo requerido")
     private MultipartFile file;
     @NotNull(message = "Propiedad opción requerida")
     private Long idSelect;
     private String fileUrl;
     private Select select;
+     */
     private Date toDate;
 
 
@@ -56,9 +58,7 @@ public class FormDTO {
                 getRfc(),
                 getEmail(),
                 getNumber(),
-                getToDate(),
-                getFileUrl(),
-                getSelect()
+                getToDate()
         );
     }
 }
