@@ -26,7 +26,7 @@ public class FormDTO {
     @Pattern(regexp = "^[0-9]{16}$", message = "Número de tarjeta inválido")
     private String card_number;
     @NotBlank(message = "Propiedad rfc requerida")
-    @Pattern(regexp = "^([A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z0-9]{3})$", message = "Formato de rfc inválido pendejo")
+    @Pattern(regexp = "^([A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z0-9]{3})$", message = "Formato de rfc inválido")
     private String rfc;
     @NotBlank(message = "Propiedad email requerida")
     @Email
@@ -36,7 +36,7 @@ public class FormDTO {
     @Max(value = 30L, message = "El numero debe ser menor a 30")
     private Long number;
     @Pattern(regexp = "^([0-9]{4}-[0-9]{2}-[0-9]{2})$", message = "Formato de fecha yyyy-MM-dd")
-    @DateUp18Years(message = "Debes ser mayor a 18 anios meco")
+    @DateUp18Years(message = "Debes tener al menos 18 anios")
     private String date;
     /*
     @NotNull(message = "Archivo requerido")
