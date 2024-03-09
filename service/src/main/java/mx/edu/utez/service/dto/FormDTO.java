@@ -6,9 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.service.model.Form;
-import mx.edu.utez.service.model.Select;
 import mx.edu.utez.service.validate.anotations.DateUp18Years;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
@@ -20,6 +18,7 @@ public class FormDTO {
     @NotBlank(message = "Propiedad text requerida")
     @Size(min = 10, max = 20, message = "El campo de texto debe tener entre 10 y 20 caracteres")
     @Pattern(regexp = "^(?=.*\\S).+$", message = "El campo texto no puede contener solo espacios en blanco")
+    @Pattern(regexp = "^\\S(.*\\S)?$", message = "El campo no puede iniciar o terminar con espacios en blanco")
     private String text;
 
     @NotBlank(message = "Propiedad card_number requerida")
@@ -48,6 +47,9 @@ public class FormDTO {
      */
     private Date toDate;
 
+    public String getText() {
+        return this.text.replaceAll("\\s+", " ");
+    }
 
 
     public Form getForm() {

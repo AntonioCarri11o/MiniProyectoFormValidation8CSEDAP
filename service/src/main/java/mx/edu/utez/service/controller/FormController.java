@@ -3,6 +3,7 @@ package mx.edu.utez.service.controller;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
+import mx.edu.utez.service.model.Form;
 import mx.edu.utez.service.service.FormService;
 import mx.edu.utez.service.dto.FormDTO;
 import mx.edu.utez.service.utils.GlobalVariable;
@@ -21,6 +22,11 @@ import java.util.Set;
 public class FormController {
     @Autowired
     FormService formService;
+
+    @GetMapping
+    public List<Form> index() {
+        return formService.list();
+    }
 
     @PostMapping
     public ResponseEntity<String> save(@Valid @RequestBody FormDTO formDTO) {
